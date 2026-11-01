@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureVault | Cloud File Storage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">◆</span> SecureVault</a>
+    <span class="tagline">Private file storage</span>
+  </header>
+
+  <main class="shell">
+    <section id="authView" class="auth-layout">
+      <div class="intro">
+        <p class="eyebrow">YOUR FILES. YOUR CONTROL.</p>
+        <h1>Store files<br /><span>with confidence.</span></h1>
+        <p class="intro-copy">A simple secure storage project with account login and AES-256-GCM encrypted files.</p>
+        <div class="feature-list">
+          <div><span>✓</span> Encrypted file storage</div>
+          <div><span>✓</span> Private user accounts</div>
+          <div><span>✓</span> Download and delete anytime</div>
+        </div>
+      </div>
+      <div class="panel auth-panel">
+        <div class="tabs">
+          <button class="tab active" id="loginTab">Login</button>
+          <button class="tab" id="registerTab">Create account</button>
+        </div>
+        <h2 id="authTitle">Welcome back</h2>
+        <p class="muted" id="authSubtitle">Log in to access your secure files.</p>
+        <form id="authForm">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" placeholder="Enter username" required minlength="3" maxlength="30" />
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="At least 8 characters" required minlength="8" />
+          <button class="primary full" id="authSubmit" type="submit">Log in</button>
+        </form>
+        <p id="authMessage" class="message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="appView" class="hidden">
+      <div class="welcome-row">
+        <div><p class="eyebrow">SECURE WORKSPACE</p><h1>Your files</h1><p class="muted">Welcome, <strong id="currentUser"></strong></p></div>
+        <button class="outline" id="logoutBtn">Log out</button>
+      </div>
+      <div class="panel upload-panel">
+        <div><h2>Upload a file</h2><p class="muted">Files are encrypted before they are saved on the server.</p></div>
+        <form id="uploadForm" class="upload-form">
+          <input type="file" id="fileInput" required />
+          <button class="primary" type="submit">↑ Upload securely</button>
+        </form>
+        <p class="hint">Maximum file size: configured by the server (default 20 MB).</p>
+        <p id="uploadMessage" class="message" aria-live="polite"></p>
+      </div>
+      <div class="files-heading"><div><h2>Stored files</h2><p class="muted">Only files belonging to your account are shown.</p></div><button class="outline" id="refreshBtn">↻ Refresh</button></div>
+      <div id="fileList" class="file-list"></div>
+    </section>
+    <footer>SecureVault demo project · Keep your encryption key safe</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
